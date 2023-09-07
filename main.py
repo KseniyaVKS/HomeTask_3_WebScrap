@@ -29,12 +29,6 @@ for page in range(10):
         else:
             vacancy_salary = vacancy_salary_tag.text
 
-        time.sleep(0.5)
-        response_vacancy_full = requests.get(vacancy_link, headers=headers_gen.generate())
-        response_vacancy_full_html = response_vacancy_full.text
-        vacancy_full_soup = bs4.BeautifulSoup(response_vacancy_full_html, features='lxml')
-        vacancy_full_tag = vacancy_full_soup.find('div', class_='g-user-content')
-        vacancy_full_text = vacancy_full_tag.text
         vacancy_company_tag = vacancy_tag.find('div', class_='vacancy-serp-item__meta-info-company')
         vacancy_company = vacancy_company_tag.text
         vacancy_city_tag = vacancy_tag.find('div', attrs={'data-qa': 'vacancy-serp__vacancy-address'})
